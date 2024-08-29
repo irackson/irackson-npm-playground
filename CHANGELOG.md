@@ -1,5 +1,11 @@
 # irackson-npm-playground
 
+## 1.5.0
+
+### Minor Changes
+
+-   4a27279: update console log
+
 ## 1.4.0
 
 ### Minor Changes
