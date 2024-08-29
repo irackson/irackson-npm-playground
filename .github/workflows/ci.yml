@@ -27,30 +27,10 @@ jobs:
             - name: Build
               run: npm run build
 
-            - name: Get Latest Commit Message
-              id: get_commit_message
-              run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
-
             - name: Create Changeset
-              run: |
-                  npx changeset add --ignore-scope || echo "No changes detected"
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Verify Changeset
-              run: |
-                  ls -al .changeset
-                  cat .changeset/*
-              continue-on-error: true
-
-            - name: Commit Changeset
-              run: |
-                  git config user.name "GitHub Actions"
-                  git config user.email "actions@github.com"
-                  git add .changeset
-                  git status
-                  git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
-                  git push origin main
+              uses: changesets/action@v1.4.8
+              with:
+                  commit: false # Set to true if you want the action to commit the changeset
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
