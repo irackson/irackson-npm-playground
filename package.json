@@ -1,0 +1,26 @@
+{
+  "name": "irackson-npm-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json,md}'",
+    "prepare": "husky install",
+    "changeset": "changeset"
+  },
+  "keywords": [],
+  "author": "Ian Rackson <ian.rackson@lyntonweb.com> (https://ianrackson.com/)",
+  "license": "ISC"
+}
