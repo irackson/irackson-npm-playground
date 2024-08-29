@@ -1,6 +1,6 @@
 {
     "name": "irackson-npm-playground",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -21,6 +21,8 @@
         "format": "prettier --write 'src/**/*.{ts,tsx,json,md}'",
         "prepare": "husky",
         "changeset": "changeset",
+        "changeset-version": "changeset version",
+        "changeset-publish": "changeset publish",
         "prepublishOnly": "npm run build"
     },
     "keywords": [],
