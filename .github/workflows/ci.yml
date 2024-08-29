@@ -16,22 +16,25 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@v4.1.7
 
-            - name: Setup Node.js
+            - name: Set up Node.js
               uses: actions/setup-node@v4.0.3
               with:
                   node-version: '22.7.0'
 
             - name: Install Dependencies
-              run: yarn install
+              run: npm install
 
             - name: Create Release Pull Request
               id: changesets
               uses: changesets/action@v1.4.8
+              with:
+                  setupGitUser: true
+                  createGithubReleases: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Publish to npm
               if: steps.changesets.outputs.published == 'true'
-              run: yarn publish
+              run: npm publish
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
