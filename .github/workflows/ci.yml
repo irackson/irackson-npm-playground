@@ -33,7 +33,7 @@ jobs:
 
             - name: Create Changeset
               run: |
-                  npx changeset add || echo "No changes detected"
+                  npx changeset add --ignore-scope || echo "No changes detected"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
