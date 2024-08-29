@@ -19,7 +19,7 @@ jobs:
                   node-version: '16' # Specify the Node.js version
 
             - name: Install Dependencies
-              run: npm install
+              run: npm ci
 
             - name: Lint and Test
               run: npm run lint
