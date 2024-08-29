@@ -1,5 +1,5 @@
 src
 .git
 .vscode
-*.ts
-*.map
+# *.ts
+# *.map
