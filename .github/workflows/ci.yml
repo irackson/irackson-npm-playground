@@ -50,7 +50,7 @@ jobs:
                   git add .changeset
                   git status
                   git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
-                  git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+                  git push origin main
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
