@@ -27,9 +27,13 @@ jobs:
             - name: Build
               run: npm run build
 
+            - name: Get Latest Commit Message
+              id: get_commit_message
+              run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
             - name: Create Changeset
               run: |
-                  npm run changeset
+                  npx changeset add
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,7 +42,7 @@ jobs:
                   git config user.name "GitHub Actions"
                   git config user.email "actions@github.com"
                   git add .changeset
-                  git commit -m "chore: add changeset for versioning"
+                  git commit -m "$COMMIT_MESSAGE"
                   git push origin main
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
