@@ -33,7 +33,7 @@ jobs:
 
             - name: Create Changeset
               run: |
-                  npx changeset add
+                  npx changeset add || echo "No changes detected"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -42,7 +42,8 @@ jobs:
                   git config user.name "GitHub Actions"
                   git config user.email "actions@github.com"
                   git add .changeset
-                  git commit -m "$COMMIT_MESSAGE"
+                  git status
+                  git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
                   git push origin main
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
