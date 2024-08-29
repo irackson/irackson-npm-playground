@@ -30,7 +30,7 @@ jobs:
             - name: Create Changeset
               uses: changesets/action@v1.4.8
               with:
-                  commit: false # Set to true if you want the action to commit the changeset
+                  commit: true # Set to true if you want the action to commit the changeset
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
